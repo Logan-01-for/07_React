@@ -9,6 +9,7 @@ import {
   Area,
 } from "recharts";
 // https://recharts.org/en-US
+// npm install recharts
 
 function Chart() {
   const data = [
