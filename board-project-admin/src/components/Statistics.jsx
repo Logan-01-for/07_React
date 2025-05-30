@@ -7,6 +7,19 @@ export default function Statistics() {
   const [commentCountData, setCommentCountData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  // 7일내 신규회원 리스트 조회
+  const fetchNewMembers = async () => {
+    try {
+      const response = await axiosApi.get("/admin/newMember");
+
+      if (response.status === 200) {
+        setNewMembers(response.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   // 최대 조회 수 게시글 조회
   const getMaxReadCount = async () => {
     try {
