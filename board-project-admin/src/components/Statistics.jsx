@@ -123,3 +123,34 @@ export default function Statistics() {
     );
   }
 }
+
+// 신규 회원 조회
+const NewMembers = ({ data }) => {
+  return (
+    <div className="new-members">
+      <h2>신규 가입 회원 ({data.length}명)</h2>
+      <h3>[ 7일 이내 가입 회원 ]</h3>
+      <table border={1}>
+        <thead>
+          <tr>
+            <th>회원번호</th>
+            <th>이메일</th>
+            <th>닉네임</th>
+            <th>가입일</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {data.map((member) => (
+            <tr key={member.memberNo}>
+              <td>{member.memberNo}</td>
+              <td>{member.memberEmail}</td>
+              <td>{member.memberNickname}</td>
+              <td>{member.enrollDate}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
